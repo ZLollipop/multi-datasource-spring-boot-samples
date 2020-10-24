@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    hikari:
+      read-only: on
+    #hikari的共同配置
+    multi:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: org.h2.Driver
+          schema: classpath:master/schema-h2.sql
+          data: classpath:master/data-h2.sql
+          url: jdbc:h2:mem:test
+          username: root
+          password: test
+          mapper-locations: classpath:mapper/crm/*.xml
+          base-package: com.kcxt.crm.data.sync.mapper.crm
+          #hikari:
+          #hikari的单独话的配置
+        slave:
+          driver-class-name: org.h2.Driver
+          schema: classpath:slave/schema-h2.sql
+          data: classpath:slave/data-h2.sql
+          url: jdbc:h2:mem:test
+          username: root
+          password: test
+          mapper-locations: classpath:mapper/crm/*.xml
+          base-package: com.kcxt.crm.data.sync.mapper.crm
+        db2:
+          driver-class-name: org.h2.Driver
+          schema: classpath:db2/schema-h2.sql
+          data: classpath:db2/data-h2.sql
+          url: jdbc:h2:mem:test
+          username: root
+          password: test
+          mapper-locations: classpath:mapper/crm/*.xml
+          base-package: com.kcxt.crm.data.sync.mapper.crm
+          #hikari:
+          #hikari的单独话的配置

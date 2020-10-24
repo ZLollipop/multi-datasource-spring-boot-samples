@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    hikari:
+      read-only: on
+    #hikari的共同配置
+    multi:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: org.h2.Driver
+          schema: classpath:master/schema-h2.sql
+          data: classpath:master/data-h2.sql
+          url: jdbc:h2:mem:test
+          username: root
+          password: test
+
+          # 这里可以做到自动提示吗？
+          mapper-locations: classpath:mapper/crm/*.xml
+          base-package: com.kcxt.crm.data.sync.mapper.crm
+          hikari:
+          #hikari的单独话的配置
+        salve:
+          driver-class-name: org.h2.Driver
+          schema: classpath:master/schema-h2.sql
+          data: classpath:master/data-h2.sql
+          url: jdbc:h2:mem:test
+          username: root
+          password: test
+
+          mapper-locations: classpath:mapper/crm/*.xml
+          base-package: com.kcxt.crm.data.sync.mapper.crm
+          hikari:
+          #hikari的单独话的配置
