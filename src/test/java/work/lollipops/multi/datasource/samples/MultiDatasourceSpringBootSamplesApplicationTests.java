@@ -9,5 +9,4 @@ class MultiDatasourceSpringBootSamplesApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

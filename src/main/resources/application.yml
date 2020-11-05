@@ -1,27 +1,33 @@
+server:
+  port: 8087
 spring:
   datasource:
     hikari:
       read-only: true
     #hikari的共同配置
     multi:
-      primary: master
+      primary: db1
       datasource:
-        master:
-          username: testuser
-          password: test@cdELk3
-          driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://test.kakahui.net:3306/smart_crm?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-          # 这里可以做到自动提示吗？
-          mapper-locations: classpath:mapper/crm/*.xml
-          base-package: com.kcxt.crm.data.sync.mapper.crm
-          hikari:
-          #hikari的单独话的配置
-        salve_1:
+        db1:
           username: root
           password: root
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/company?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-          mapper-locations: classpath:mapper/crm/*.xml
-          base-package: com.kcxt.crm.data.sync.mapper.crm
-          hikari:
+          url: jdbc:mysql://localhost:3306/db1?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+          mapper-locations: classpath:mapper/db1/*.xml
+          base-package: work.lollipops.multi.datasource.samples.mapper.db1
+        db2:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/db2?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+          mapper-locations: classpath:mapper/db2/*.xml
+          base-package: work.lollipops.multi.datasource.samples.mapper.db2
+        db3:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/db3?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+          mapper-locations: classpath:mapper/db3/*.xml
+          base-package: work.lollipops.multi.datasource.samples.mapper.db3
+          #hikari:
           #hikari的单独话的配置
